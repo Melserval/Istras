@@ -1,0 +1,16 @@
+{
+  "name": "istras",
+  "version": "0.0.1",
+  "description": "система управления заметок и заданий",
+  "main": "istras.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Melserval",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.2",
+    "express-handlebars": "^6.0.2",
+    "multiparty": "^4.2.2"
+  }
+}
