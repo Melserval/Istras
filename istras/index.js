@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyparser = require("body-parser");
 const handlebars = require("express-handlebars");
-const handler = require("./handlers");
 
 const PORT = process.env.PORT || 8888;
 const app = express();
@@ -19,10 +18,8 @@ app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
 
 
-app.get('/', handler.home);
-app.get('/about', handler.about);
-app.get('/registration', handler.registration);
-
+// пользовательские 
+require("./routes/routes")(app);
 
 // служебные 404 500
 app.use((req, res) => {
