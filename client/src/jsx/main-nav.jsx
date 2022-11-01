@@ -19,7 +19,7 @@ class MainNav extends React.Component {
 					<li>
 						<a href=""
 							onClick={event => this.props.setSection(3)}
-						>список сотрудников</a>
+						>Текущая задача</a>
 					</li>
 				</ul>
 			</nav>

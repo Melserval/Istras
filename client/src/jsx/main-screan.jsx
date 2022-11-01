@@ -5,8 +5,9 @@ class MainScrean extends React.Component {
 		this.state = {
 			activeSection: {
 				name: "Список задач",
-				component: null
-			}
+				component: <ListTaskList />
+			},
+			currentTask: null
 		};
 	}
 
@@ -17,10 +18,10 @@ class MainScrean extends React.Component {
 				this.setState({activeSection: {name: "Список задач", component: <ListTaskList />}}); 
 				break;
 			case 2: 
-				this.setState({activeSection: {name: "Добавить задачу"}}); 
+				this.setState({activeSection: {name: "Добавить задачу", component: <FormTaskCreate />}}); 
 				break;
 			case 3: 
-				this.setState({activeSection: {name: "Список сотрудников"}}); 
+				this.setState({activeSection: {name: "Текущая задача"}}); 
 				break;
 		}
 	}

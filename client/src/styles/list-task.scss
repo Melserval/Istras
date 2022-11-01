@@ -1,0 +1,31 @@
+#list_task {
+    font-family: Arial, Helvetica, sans-serif;
+    th {
+        font-size: 18px;
+        span {
+            display: inline-block;
+            cursor: pointer;
+            background-color: rgb(232, 253, 223);
+            border: 1px solid rgb(160, 248, 125);
+            border-radius: 3px;
+        }
+        &:nth-child(1) span {
+                width: 120px;
+        }
+        &:nth-child(2) span {
+                width: 100px;
+        }
+        &:nth-child(3) span {
+            width: 100px;
+        }
+        &:nth-child(4) span {
+                width: 400px;
+        }
+        &:nth-child(5) span {
+                width: 120px;
+        }
+    }
+    td {
+        font-size: 16px;
+    }
+}
