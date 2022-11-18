@@ -8,17 +8,17 @@ class MainNav extends React.Component {
 				}}>
 					<li>
 						<a href=""
-							onClick={event => this.props.setSection(1)}
+							onClick={event => this.props.btnOnClickHandler(1)}
 						>список задач</a>
 					</li>
 					<li>
 						<a href=""
-							onClick={event => this.props.setSection(2)}
+							onClick={event => this.props.btnOnClickHandler(2)}
 						>добавить задачу</a>
 					</li>
 					<li>
 						<a href=""
-							onClick={event => this.props.setSection(3)}
+							onClick={event => this.props.btnOnClickHandler(3)}
 						>Текущая задача</a>
 					</li>
 				</ul>

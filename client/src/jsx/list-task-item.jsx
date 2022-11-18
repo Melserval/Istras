@@ -1,7 +1,7 @@
 class ListTaskItem extends React.Component {
 	render() {
 		return (
-			<tr>
+			<tr onClick={this.props.selectTask}>
 				<td>
 					<span>{this.props.dataItem.date}</span>
 				</td>

@@ -1,27 +1,48 @@
 
-class MainScrean extends React.Component {
+class MainScrean extends React.Component 
+{
 	constructor(props) {
 		super(props);
+		
 		this.state = {
-			activeSection: {
-				name: "Список задач",
-				component: <ListTaskList />
-			},
+			activeSection: null,
 			currentTask: null
 		};
+
+		this.sectionTaskList       = {title: "Список задач",       component: <ListTaskList onSelectTask={this.selectTask.bind(this)} />};
+		this.sectionAddTask        = {title: "Добавить задачу",    component: <FormTaskCreate />};
+		this.sectionCurrentTask    = {title: "Текущая задача",     component: null};
+		this.sectionTaskManagement = {title: "Управление задачей", component: <TaskManagement />};
+
+		this.state.activeSection = this.sectionTaskList;
 	}
 
-	setSection(sectionNum)
+	handleTaskCreateDone(task) {
+		console.log(task);
+	}
+
+	selectTask(taskitem) {
+		this.setState({activeSection: {title: "Управление задачей", component: <TaskManagement task={taskitem} />}}); 
+		// this.setState({currentTask: taskitem}, this.setSection.bind(this, 4));
+	}
+
+	setSection(sectionNum) 
 	{
 		switch(sectionNum) {
-			case 1: 
-				this.setState({activeSection: {name: "Список задач", component: <ListTaskList />}}); 
+			case 1:
+				this.setState({activeSection: this.sectionTaskList});
 				break;
-			case 2: 
-				this.setState({activeSection: {name: "Добавить задачу", component: <FormTaskCreate />}}); 
+			case 2:
+				this.setState({activeSection: this.sectionAddTask}); 
 				break;
-			case 3: 
-				this.setState({activeSection: {name: "Текущая задача"}}); 
+			case 3:
+				this.setState({activeSection: this.sectionCurrentTask}); 
+				break;
+			case 4:
+				this.setState({activeSection: {title: "Управление задачей", component: <TaskManagement task={this.state.currentTask} />}}); 
+				break;
+			default:
+				this.setState({activeSection: this.sectionTaskList});
 				break;
 		}
 	}
@@ -29,7 +50,7 @@ class MainScrean extends React.Component {
 	render() {
 		return (
 			<React.Fragment>
-				<MainHeader setSection={this.setSection.bind(this)} sectionInfo={this.state.activeSection}/>
+				<MainHeader btnOnClickHandler={this.setSection.bind(this)} sectionTitle={this.state.activeSection.title}/>
 				<SectionConteiner component={this.state.activeSection.component}/>
 			</React.Fragment>
 		)
