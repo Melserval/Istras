@@ -1,3 +1,8 @@
+// начальная точка входа приложения.
+import { React } from "react";
+
+import ReactDOM from "react-dom";
+
 
 class MainScrean extends React.Component 
 {

@@ -1,4 +1,6 @@
-class ListTaskItem extends React.Component {
+import React from "react";
+
+export default class ListTaskItem extends React.Component {
 	render() {
 		return (
 			<tr onClick={this.props.selectTask}>

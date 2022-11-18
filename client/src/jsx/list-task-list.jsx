@@ -1,4 +1,7 @@
-class ListTaskList extends React.Component {
+import React from "react";
+import ListTaskItem from "./list-task-item";
+
+export default class ListTaskList extends React.Component {
 
 	constructor(props) {
 		super(props);

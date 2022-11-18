@@ -1,4 +1,7 @@
-class TaskManagement extends React.Component {
+import React from "react";
+import { ElementSelectPriority } from "./common-elements";
+
+export default class TaskManagement extends React.Component {
 
 	constructor(props) {
 		super(props);

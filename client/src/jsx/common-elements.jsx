@@ -4,7 +4,7 @@
  * @param {*} props 
  * @returns 
  */
-function ElementSelectPriority(props) {
+export function ElementSelectPriority(props) {
 	return (
 		<select name="prior" disabled={props.disabled}>
 			<option value="1" selected={true}>обычный</option>

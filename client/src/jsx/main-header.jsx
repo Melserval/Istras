@@ -1,8 +1,11 @@
+import React from "react";
+import MainNav from "./main-nav";
+
 /**
  * @property btnOnClickHandler обработчик кнопок меню.
  * @property sectionTitle название текущей секции.
  */
-class MainHeader extends React.Component {
+export class MainHeader extends React.Component {
 	render() {
 		return (
 			<header>
