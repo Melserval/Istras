@@ -11,8 +11,7 @@ class ListTaskList extends React.Component {
 	}
 
 	componentDidMount() {
-		// HACK: фейковые данные
-		fetch("./tasks.json")
+		fetch("/api/tasks")
 		.then(response => response.ok ? response.json() : Promise.reject())
 		.then(dataSet => this.setState({dataSet}))
 		.catch(console.error);

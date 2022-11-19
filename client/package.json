@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./src/styles/_main.scss ./app/css/master.css",
+    "sass": "sass --watch ./src/styles/_main.scss D:/Projects/Istras/server/static/css/master.css",
     "server": "live-server app"
   },
   "author": "melserval",

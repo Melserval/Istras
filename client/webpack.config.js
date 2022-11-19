@@ -4,7 +4,7 @@ module.exports = {
 	entry: "./src/jsx/main-screan.jsx",
 	output: {
 		filename: "bundle.js",
-		path: __dirname + "/app/js/"
+		path: "D:/Projects/Istras/server/static/js"
 	},
 	module: {
 		rules: [
