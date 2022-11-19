@@ -4,7 +4,8 @@
   "description": "система управления заметок и заданий",
   "main": "istras.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "server": "node index.js"
   },
   "author": "Melserval",
   "license": "MIT",

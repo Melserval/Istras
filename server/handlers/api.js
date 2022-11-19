@@ -1,6 +1,6 @@
 // получение списка задач из бд.
 
-exports.getTaskList = function(req, res) {
+exports.tasks = function(req, res) {
     res.json([
    {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
    {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},

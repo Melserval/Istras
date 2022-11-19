@@ -10,3 +10,7 @@ exports.about = function(req, res) {
 exports.registration = function(req, res) {
     res.render('registration');
 };
+
+exports.its = function(req, res) {
+    res.render('its');
+};
