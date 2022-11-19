@@ -1,33 +1,39 @@
-// получение списка задач из бд.
+const db = require("./../db.js");
 
+// получение списка задач из бд.
+const sql_get_tasks_list =`
+SELECT created, title, status, priority, name 
+FROM task 
+LEFT JOIN author
+ON task.author_id = author.id
+`;
 exports.tasks = function(req, res) {
-    res.json([
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "01-05-2020", "prio": "high", "status": "open", "title": "Очень Важная Задача", "author": "Warfazer"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "02-03-2020", "prio": "medium", "status": "in work", "title": "Текущая Задача", "author": "Penky"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"},
-   {"date": "01-02-2020", "prio": "low", "status": "in work", "title": "Надо бы выпонить", "author": "Paywa"}
-    ]);
+	db.getConnection().query(
+		sql_get_tasks_list, 
+		(err, results) => {
+			if (err) {
+				console.error(err);
+			} else {
+				res.json(results);
+			}
+		}
+	);
+};
+
+// получение данных выбранной задачи
+const sql_get_task_data = `
+SELECT text FROM progress WHERE id = ?
+`;
+exports.getTaskById = function(req, res) {
+	db.getConnection().execute(
+		sql_get_task_data,
+		[req.params.id],
+		(err, result) => {
+			if (err) {
+				console.error(err);
+			} else {
+				res.json(result);
+			}
+		}
+	);
 };

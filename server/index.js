@@ -3,8 +3,10 @@ const bodyparser = require("body-parser");
 const handlebars = require("express-handlebars");
 
 const PORT = process.env.PORT || 8888;
+
 const app = express();
 
+// --- Установки Express ---
 app.disable('x-powered-by');
 
 const hbs = handlebars.create({
@@ -18,6 +20,7 @@ app.use(express.static(__dirname+'/static'));
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
 
+// ---- routes ----
 const handlerApi = require('./handlers/api');
 const handlerUser = require('./handlers/user');
 
@@ -29,6 +32,7 @@ app.get('/its', handlerUser.its);
 
 //API
 app.get('/api/tasks', handlerApi.tasks);
+app.get('/api/task/:id', handlerApi.getTaskById);
 
 // служебные 404, 500
 app.use((req, res) => {
@@ -39,4 +43,5 @@ app.use((err, req, res, next) => {
     res.status(500).render('500');
 });
 
+// --- Run! ---
 app.listen(PORT, () => console.info(`Запущен на ${PORT} порту.`));
