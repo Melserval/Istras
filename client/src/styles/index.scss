@@ -13,7 +13,7 @@ html, body {
             li {
                 display: inline-block;
                 margin-left: 10px;
-                a {
+                button {
                     display: block;
                     width: 250px;
                     height: 35px;
@@ -23,6 +23,7 @@ html, body {
                     background-color: #fff;
                     text-align: center;
                     text-decoration: none;
+                    cursor: pointer;
                     &:hover {
                         background-color: rgb(178, 230, 131);
                     }

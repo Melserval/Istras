@@ -4,7 +4,7 @@
   "description": "веб клиент для системы отслеживания задач",
   "main": "index.js",
   "scripts": {
-    "build": "babel --watch src/jsx --out-file app/js/bundle.js --presets react-app/prod --source-maps=true",
+    "build": "webpack --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch ./src/styles/_main.scss ./app/css/master.css",
     "server": "live-server app"

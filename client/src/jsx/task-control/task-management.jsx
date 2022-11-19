@@ -1,5 +1,5 @@
 import React from "react";
-import { ElementSelectPriority } from "./common-elements";
+import { ElementSelectPriority } from "../common-elements";
 
 export default class TaskManagement extends React.Component {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import ListTaskItem from "./list-task-item";
 
-export default class ListTaskList extends React.Component {
+class ListTaskList extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -55,3 +55,5 @@ export default class ListTaskList extends React.Component {
 		)
 	}
 }
+
+export default ListTaskList;

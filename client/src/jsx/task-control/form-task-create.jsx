@@ -1,5 +1,6 @@
 import React from "react";
-import { ElementSelectPriority } from "./common-elements";
+import { ElementSelectPriority } from "../common-elements";
+
 
 // компонент-экран создания задачи.
 export default class FormTaskCreate extends React.Component {

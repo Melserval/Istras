@@ -4,24 +4,22 @@ export default class MainNav extends React.Component {
 	render() {
 		return (
 			<nav>
-				<ul onClick={event => {
-					//HACK: Временное решение
-					if (event.target.nodeName === "A") event.preventDefault();
-				}}>
+				<ul>
 					<li>
-						<a href=""
-							onClick={event => this.props.btnOnClickHandler(1)}
-						>список задач</a>
+						<button 
+						onClick={this.props.btn_1.onClick}
+						>Список задач</button>
 					</li>
 					<li>
-						<a href=""
-							onClick={event => this.props.btnOnClickHandler(2)}
-						>добавить задачу</a>
+						<button 
+						onClick={this.props.btn_2.onClick}
+						>Добавить задачу</button>
 					</li>
 					<li>
-						<a href=""
-							onClick={event => this.props.btnOnClickHandler(3)}
-						>Текущая задача</a>
+						<button 
+						onClick={this.props.btn_3.onClick} 
+						disabled={this.props.btn_3.disabled}
+						>Текущая задача</button>
 					</li>
 				</ul>
 			</nav>
